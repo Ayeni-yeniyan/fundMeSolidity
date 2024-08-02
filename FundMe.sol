@@ -28,10 +28,11 @@ contract FundMEME {
         // Three ways to transfer to a wallet
         // you have to make the address payable
         // Transfer will send and automatically check/ revert if the transaction fails
-        payable (msg.sender).transfer(address(this).balance);
+        // payable (msg.sender).transfer(address(this).balance);
         // Send will return a bool without reverting. You should revert yourself based on the bool with a required check
-       bool transactionSuccessful= payable (msg.sender).send(address(this).balance);
-        require(transactionSuccessful,"You can't withdraw at this moment");
+    //    bool transactionSuccessful= payable (msg.sender).send(address(this).balance);
+    //     require(transactionSuccessful,"You can't withdraw at this moment");
+        // call is a powerful low level function. Prefer to use it.
         (bool tSuccess,/* bytes dataReturned*/) =payable (msg.sender).call{value: address(this).balance}("");
                 require(tSuccess,"You can't withdraw at this moment");
     }
