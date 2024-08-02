@@ -3,6 +3,10 @@ pragma solidity  ^0.8.18;
 
 import {PriceConverter} from "./PriceConverter.sol";
 
+// Custom errors? read up on it  
+error UnAuthorised();
+
+
 contract FundMEME {
     // Constants and immutables reduce gas cost when you are only setting the variables once.
     // constants are use when you create the variable similar to const in flutter
